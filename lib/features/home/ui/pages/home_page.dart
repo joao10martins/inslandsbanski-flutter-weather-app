@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/app/router.dart';
-import 'package:weather_app/features/location/widgets/current_location_container.dart';
+import 'package:weather_app/features/location/ui/widgets/current_location_container.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage();

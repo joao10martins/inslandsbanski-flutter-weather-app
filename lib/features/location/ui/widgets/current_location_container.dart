@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:weather_app/core/common/widgets/failure_view.dart';
 import 'package:weather_app/core/errors/failures.dart';
-import 'package:weather_app/features/location/bloc/current_location_bloc.dart';
+import 'package:weather_app/features/location/ui/bloc/current_location_bloc.dart';
 import 'package:weather_app/core/common/widgets/progress_view.dart';
 
 
