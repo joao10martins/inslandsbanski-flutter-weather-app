@@ -15,13 +15,24 @@ class HomePage extends StatelessWidget {
         children: [
           const CurrentLocationContainer(),
           const SizedBox(height: 16),
-          _buildSearchButton(context),
+          SearchButton(context: context),
         ],
       ),
     );
   }
 
-  Widget _buildSearchButton(BuildContext context) {
+}
+
+class SearchButton extends StatelessWidget {
+  const SearchButton({
+    Key? key,
+    required this.context,
+  }) : super(key: key);
+
+  final BuildContext context;
+
+  @override
+  Widget build(BuildContext context) {
     return ElevatedButton(
       child: const Text('Search for different location'),
       style: ButtonStyle(
