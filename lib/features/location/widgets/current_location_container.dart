@@ -15,12 +15,22 @@ class CurrentLocationContainer extends StatelessWidget {
     return BlocProvider(
       create: (BuildContext context) => CurrentLocationBloc.fromContext(context)..loadUserLocation(),
       child: Builder(
-        builder: (BuildContext context) => _buildContent(context),
+        builder: (BuildContext context) => ContentView(context: context),
       ),
     );
   }
+}
 
-  Widget _buildContent(BuildContext context) {
+class ContentView extends StatelessWidget {
+  const ContentView({
+    Key? key,
+    required this.context,
+  }) : super(key: key);
+
+  final BuildContext context;
+
+  @override
+  Widget build(BuildContext context) {
     return BlocBuilder<CurrentLocationBloc, CurrentLocationState>(
       builder: (BuildContext context, CurrentLocationState state) {
         return state.when(
