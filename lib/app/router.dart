@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:weather_app/features/home/pages/home_page.dart';
 
 class Routes {
   static const kHomePage = '/';
