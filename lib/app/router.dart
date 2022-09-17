@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:weather_app/features/home/pages/home_page.dart';
+import 'package:weather_app/features/home/ui/pages/home_page.dart';
 
 class Routes {
   static const kHomePage = '/';
@@ -15,13 +15,13 @@ Route<dynamic> router(RouteSettings settings) {
         builder: (context) => const HomePage(),
       );
     case Routes.kForecastPage:
-      return MaterialPageRoute(
+      /*return MaterialPageRoute(
         builder: (context) => ForecastPage(),
-      );
+      );*/
     case Routes.kSearchPage:
-      return MaterialPageRoute(
+      /*return MaterialPageRoute(
         builder: (context) => const SearchLocationPage(),
-      );
+      );*/
     default:
       return MaterialPageRoute(
         builder: (context) => const Text('Placeholder'),

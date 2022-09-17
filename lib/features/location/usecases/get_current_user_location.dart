@@ -15,6 +15,11 @@ class GetCurrentUserLocationImpl extends GetCurrentUserLocation {
 
   @override
   Future<Either<Failure, Position>> execute(NoParams params) async {
+    final bool isLocationServiceEnabled = await locationRepository.isLocationServiceEnabled();
+    if (!isLocationServiceEnabled) {
+      return Left(LocationServiceDisabledFailure());
+    }
+
     LocationPermission permission = await locationRepository.checkPermission();
     if (permission == LocationPermission.denied) {
       permission = await locationRepository.requestPermission();
@@ -25,11 +30,6 @@ class GetCurrentUserLocationImpl extends GetCurrentUserLocation {
 
     if (permission == LocationPermission.deniedForever) {
       return Left(PermissionDeniedFailure());
-    }
-
-    final bool isLocationServiceEnabled = await locationRepository.isLocationServiceEnabled();
-    if (!isLocationServiceEnabled) {
-      return Left(LocationServiceDisabledFailure());
     }
 
     return locationRepository.getCurrentPosition().then(

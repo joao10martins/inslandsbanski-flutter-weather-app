@@ -20,7 +20,6 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
-
 }
 
 class SearchButton extends StatelessWidget {

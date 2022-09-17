@@ -5,6 +5,7 @@ import 'package:weather_app/core/common/widgets/failure_view.dart';
 import 'package:weather_app/core/errors/failures.dart';
 import 'package:weather_app/features/location/ui/bloc/current_location_bloc.dart';
 import 'package:weather_app/core/common/widgets/progress_view.dart';
+import 'package:weather_app/features/weather/ui/widgets/positional_weather.dart';
 
 
 class CurrentLocationContainer extends StatelessWidget {
@@ -66,7 +67,7 @@ class UserLocationView extends StatelessWidget {
             style: Theme.of(context).textTheme.headline6,
           ),
           const SizedBox(height: 16),
-          // TODO: add widget for positional weather based on position.
+          PositionalWeather(position: position),
         ],
       ),
     );
