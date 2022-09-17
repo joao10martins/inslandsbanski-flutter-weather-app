@@ -26,17 +26,26 @@ class CurrentLocationContainer extends StatelessWidget {
         return state.when(
           initial: () => const SizedBox.shrink(),
           loading: () => const ProgressView(),
-          userLocation: (Position position) => _buildUserLocation(
-            context,
-            position,
-          ),
+          userLocation: (Position position) => UserLocationView(context: context, position: position),
           failed: (Failure failure) => Center(child: FailureView(failure: failure)),
         );
       },
     );
   }
+}
 
-  Widget _buildUserLocation(BuildContext context, Position position) {
+class UserLocationView extends StatelessWidget {
+  const UserLocationView({
+    Key? key,
+    required this.context,
+    required this.position,
+  }) : super(key: key);
+
+  final BuildContext context;
+  final Position position;
+
+  @override
+  Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16),
       child: Column(
