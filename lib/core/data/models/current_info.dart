@@ -6,6 +6,8 @@ part 'current_info.g.dart';
 @JsonSerializable()
 class CurrentInfo {
   CurrentInfo({
+    required this.lastUpdated,
+    required this.lastUpdatedEpoch,
     required this.temperatureCelsius,
     required this.feelsLikeCelsius,
     required this.condition,
@@ -17,6 +19,10 @@ class CurrentInfo {
 
   factory CurrentInfo.fromJson(Map<String, dynamic> json) => _$CurrentInfoFromJson(json);
 
+  @JsonKey(name: 'last_updated_epoch')
+  int lastUpdatedEpoch;
+  @JsonKey(name: 'last_updated')
+  String lastUpdated;
   @JsonKey(name: 'temp_c')
   double temperatureCelsius;
   @JsonKey(name: 'feelslike_c')
@@ -27,6 +33,6 @@ class CurrentInfo {
   @JsonKey(name: 'wind_dir')
   String windDirection;
   @JsonKey(name: 'precip_mm')
-  String precipitationMillimeters;
+  double precipitationMillimeters;
   int humidity;
 }

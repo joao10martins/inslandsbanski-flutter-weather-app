@@ -11,7 +11,7 @@ DayWeatherInfo _$DayWeatherInfoFromJson(Map<String, dynamic> json) =>
       maxTemperatureCelsius: (json['maxtemp_c'] as num).toDouble(),
       minTemperatureCelsius: (json['mintemp_c'] as num).toDouble(),
       avgTemperatureCelsius: (json['avgtemp_c'] as num).toDouble(),
-      avgHumidity: json['avghumidity'] as int,
+      avgHumidity: (json['avghumidity'] as num).toDouble(),
       condition:
           WeatherCondition.fromJson(json['condition'] as Map<String, dynamic>),
       maxWindKPH: (json['maxwind_kph'] as num).toDouble(),

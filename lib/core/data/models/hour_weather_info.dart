@@ -7,6 +7,7 @@ part 'hour_weather_info.g.dart';
 class HourWeatherInfo {
   HourWeatherInfo({
     required this.dateTime,
+    required this.dateTimeEpoch,
     required this.temperatureCelsius,
     required this.feelsLikeCelsius,
     required this.condition,
@@ -16,6 +17,8 @@ class HourWeatherInfo {
 
   @JsonKey(name: 'time')
   String dateTime;
+  @JsonKey(name: 'time_epoch')
+  int dateTimeEpoch;
   @JsonKey(name: 'temp_c')
   double temperatureCelsius;
   @JsonKey(name: 'feelslike_c')

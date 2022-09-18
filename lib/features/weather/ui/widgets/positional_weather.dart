@@ -5,7 +5,7 @@ import 'package:weather_app/core/common/widgets/failure_view.dart';
 import 'package:weather_app/core/common/widgets/progress_view.dart';
 import 'package:weather_app/core/data/models/weather_info_response.dart';
 import 'package:weather_app/core/errors/failures.dart';
-import 'package:weather_app/features/weather/ui/bloc/current_weather_bloc.dart';
+import 'package:weather_app/features/weather/ui/bloc/current/current_weather_bloc.dart';
 import 'package:weather_app/features/weather/ui/widgets/current_weather_view.dart';
 
 class PositionalWeather extends StatelessWidget {

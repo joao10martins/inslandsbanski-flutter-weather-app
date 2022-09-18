@@ -17,7 +17,7 @@ class WeatherIcon extends StatelessWidget {
       width: size,
       height: size,
       fit: BoxFit.fill,
-      imageUrl: 'https://$url',
+      imageUrl: 'https:$url',
     );
   }
 }

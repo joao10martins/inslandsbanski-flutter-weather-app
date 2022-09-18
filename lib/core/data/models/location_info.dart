@@ -8,7 +8,7 @@ class LocationInfo {
     required this.name,
     required this.country,
     required this.lat,
-    required this.lng,
+    required this.lon,
     required this.localtime,
   });
 
@@ -17,6 +17,6 @@ class LocationInfo {
   String name;
   String country;
   double lat;
-  double lng;
+  double lon;
   String localtime;
 }

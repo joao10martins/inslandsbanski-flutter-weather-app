@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:weather_app/features/home/ui/pages/home_page.dart';
+import 'package:weather_app/features/search/ui/pages/search_location_page.dart';
+import 'package:weather_app/features/weather/ui/pages/forecast_page.dart';
 
 class Routes {
   static const kHomePage = '/';
@@ -15,13 +17,17 @@ Route<dynamic> router(RouteSettings settings) {
         builder: (context) => const HomePage(),
       );
     case Routes.kForecastPage:
-      /*return MaterialPageRoute(
-        builder: (context) => ForecastPage(),
-      );*/
+      final ForecastPageArgument forecastPageArgument = settings.arguments as ForecastPageArgument;
+      return MaterialPageRoute(
+        builder: (context) => ForecastPage(
+          numberOfDays: forecastPageArgument.numberOfDays,
+          location: forecastPageArgument.location,
+        ),
+      );
     case Routes.kSearchPage:
-      /*return MaterialPageRoute(
+      return MaterialPageRoute(
         builder: (context) => const SearchLocationPage(),
-      );*/
+      );
     default:
       return MaterialPageRoute(
         builder: (context) => const Text('Placeholder'),

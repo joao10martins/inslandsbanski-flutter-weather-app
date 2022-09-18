@@ -11,6 +11,25 @@ class WeatherRepositoryImpl extends WeatherRepository {
   final String appId;
 
   @override
+  Future<Either<Failure, WeatherInfoResponse>> getCurrentWeatherForCity(
+      String cityName,
+      ) async {
+    try {
+      final responseBody = await _apiClient.get('current.json', params: {
+        'key': appId,
+        'q': cityName,
+        'aqi': 'no',
+      });
+
+      return Right(WeatherInfoResponse.fromJson(responseBody));
+    } on Failure catch (failure) {
+      return Left(failure);
+    } catch (e) {
+      return Left(ClientFailure(e));
+    }
+  }
+
+  @override
   Future<Either<Failure, WeatherInfoResponse>> getCurrentWeatherForPosition({
     required double lat,
     required double lon,
@@ -20,6 +39,28 @@ class WeatherRepositoryImpl extends WeatherRepository {
         'key': appId,
         'q': '$lat, $lon',
         'aqi': 'no',
+      });
+
+      return Right(WeatherInfoResponse.fromJson(responseBody));
+    } on Failure catch (failure) {
+      return Left(failure);
+    } catch (e) {
+      return Left(ClientFailure(e));
+    }
+  }
+
+  @override
+  Future<Either<Failure, WeatherInfoResponse>> getDailyForecastForCity(
+      String cityName, {
+        int numberOfDays = 2,
+      }) async {
+    try {
+      final responseBody = await _apiClient.get('forecast.json', params: {
+        'key': appId,
+        'q': cityName,
+        'days': numberOfDays,
+        'aqi': 'no',
+        'alerts': 'no',
       });
 
       return Right(WeatherInfoResponse.fromJson(responseBody));

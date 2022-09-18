@@ -14,6 +14,7 @@ class ApiClient {
   static Dio _createDio(String url) {
     return Dio(
       BaseOptions(
+        contentType: 'application/json',
         connectTimeout: 10000,
         receiveTimeout: 10000,
         baseUrl: url,

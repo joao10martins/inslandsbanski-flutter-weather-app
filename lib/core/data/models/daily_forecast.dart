@@ -8,6 +8,7 @@ part 'daily_forecast.g.dart';
 class DailyForecast {
   DailyForecast({
     required this.date,
+    required this.dateEpoch,
     required this.day,
     required this.hourInfoList,
   });
@@ -15,6 +16,8 @@ class DailyForecast {
   factory DailyForecast.fromJson(Map<String, dynamic> json) => _$DailyForecastFromJson(json);
 
   String date;
+  @JsonKey(name: 'date_epoch')
+  int dateEpoch;
   DayWeatherInfo day;
   @JsonKey(name: 'hour')
   List<HourWeatherInfo> hourInfoList;

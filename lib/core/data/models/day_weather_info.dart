@@ -26,7 +26,7 @@ class DayWeatherInfo {
   @JsonKey(name: 'avgtemp_c')
   double avgTemperatureCelsius;
   @JsonKey(name: 'avghumidity')
-  int avgHumidity;
+  double avgHumidity;
   WeatherCondition condition;
   @JsonKey(name: 'maxwind_kph')
   double maxWindKPH;
