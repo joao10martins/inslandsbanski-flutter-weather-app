@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:weather_app/app/resources/dimensions.dart';
+import 'package:weather_app/app/resources/spacings.dart';
+import 'package:weather_app/app/resources/strings.dart';
 import 'package:weather_app/core/common/widgets/failure_view.dart';
 import 'package:weather_app/core/errors/failures.dart';
 import 'package:weather_app/features/location/ui/bloc/current_location_bloc.dart';
@@ -58,15 +61,15 @@ class UserLocationView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16),
+      padding: Dimensions.mAllPadding,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Current location:',
+            Strings.currentLocationText,
             style: Theme.of(context).textTheme.headline6,
           ),
-          const SizedBox(height: 16),
+          Spacings.mSize,
           PositionalWeather(position: position),
         ],
       ),

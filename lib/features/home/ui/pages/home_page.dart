@@ -1,6 +1,9 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:weather_app/app/resources/color_palette.dart';
+import 'package:weather_app/app/resources/dimensions.dart';
+import 'package:weather_app/app/resources/spacings.dart';
+import 'package:weather_app/app/resources/strings.dart';
 import 'package:weather_app/app/router.dart';
 import 'package:weather_app/core/data/notifications/weather/rain_notification.dart';
 import 'package:weather_app/features/location/ui/widgets/current_location_container.dart';
@@ -27,12 +30,12 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Weather App'),
+        title: const Text(Strings.homePageTitle),
       ),
       body: Column(
         children: [
           const CurrentLocationContainer(),
-          const SizedBox(height: 16),
+          Spacings.mSize,
           SearchButton(context: context),
           //TextButton(onPressed: createRainWarningNotification, child: Text('test notification'))
         ],
@@ -53,13 +56,13 @@ class SearchButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       child: Text(
-        'Search for different location',
+        Strings.homePageSearchButtonText,
         style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: ColorPalette.kPrimaryColor),
       ),
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all<Color>(ColorPalette.kCardBackGroundColor),
         padding: MaterialStateProperty.all(
-          const EdgeInsets.all(16),
+          Dimensions.mAllPadding,
         ),
       ),
       onPressed: () {
@@ -75,21 +78,21 @@ void checkNotificationPermissions(BuildContext context) {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text('Allow Notifications'),
-          content: Text('Our app would like to send you notifications'),
+          title: Text(Strings.allowNotificationsText),
+          content: Text(Strings.ourAppWouldLikeToSendYouNotificationsText),
           actions: [
             TextButton(
               onPressed: (){ Navigator.pop(context); },
               child: Text(
-                'Don\'t allow',
-                style: TextStyle(color: ColorPalette.kTextSecondaryColor, fontSize: 18),
+                Strings.dontAllowActionText,
+                style: TextStyle(color: ColorPalette.kTextSecondaryColor, fontSize: Dimensions.lSize),
               ),
             ),
             TextButton(
               onPressed: () => AwesomeNotifications().requestPermissionToSendNotifications().then((_) => Navigator.pop(context)),
               child: Text(
-                'Allow',
-                style: TextStyle(color: ColorPalette.kPrimaryColor, fontSize: 18, fontWeight: FontWeight.bold),
+                Strings.allowActionText,
+                style: TextStyle(color: ColorPalette.kPrimaryColor, fontSize: Dimensions.lSize, fontWeight: FontWeight.bold),
               ),
             ),
           ],

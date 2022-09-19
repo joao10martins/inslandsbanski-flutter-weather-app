@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/app/resources/color_palette.dart';
+import 'package:weather_app/app/resources/dimensions.dart';
+import 'package:weather_app/app/resources/spacings.dart';
+import 'package:weather_app/app/resources/strings.dart';
 import 'package:weather_app/core/common/widgets/progress_view.dart';
 import 'package:weather_app/core/data/models/weather_info_response.dart';
 import 'package:weather_app/core/errors/failures.dart';
@@ -17,14 +20,14 @@ class SearchLocationPage extends StatelessWidget {
       create: (BuildContext context) => SearchLocationWeatherBloc.fromContext(context),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Search'),
+          title: const Text(Strings.searchPageTitle),
         ),
         body: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: Dimensions.mAllPadding,
           child: Column(
             children: [
               _SearchLocationField(),
-              const SizedBox(height: 32),
+              Spacings.xlSize,
               _buildBody(context),
             ],
           ),
@@ -57,17 +60,17 @@ class SearchLocationPage extends StatelessWidget {
     return Column(
       children: [
         Text(
-          'Search engine is very flexible. How it works:',
+          Strings.searchEngineDescription1,
           style: Theme.of(context).textTheme.headline6?.copyWith(color: ColorPalette.kTextColor),
         ),
-        const SizedBox(height: 16),
+        Spacings.mSize,
         Text(
-          'To make it more precise put the city\'s name, comma, 2-letter country code (ISO3166). You will get all proper cities in chosen country.',
+          Strings.searchEngineDescription2,
           style: Theme.of(context).textTheme.bodyText1?.copyWith(color: ColorPalette.kTextColor),
         ),
-        const SizedBox(height: 8),
+        Spacings.sSize,
         Text(
-          'The order is important - the first is city name then comma then country. Example - London, GB or New York, US.',
+          Strings.searchEngineDescription3,
           style: Theme.of(context).textTheme.bodyText1?.copyWith(color: ColorPalette.kTextColor),
         ),
       ],
@@ -108,7 +111,7 @@ class _SearchLocationFieldState extends State<_SearchLocationField> {
         decoration: InputDecoration(
           border: const OutlineInputBorder(),
           prefixIcon: const Icon(Icons.search),
-          hintText: 'Weather in your city',
+          hintText: Strings.searchHintText,
           hintStyle: Theme.of(context).textTheme.bodyText1?.copyWith(color: ColorPalette.kTextColor.withOpacity(0.7)),
           errorText: _errorMessage,
           suffixIcon: _buildSuffixIcon(),
