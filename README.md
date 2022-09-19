@@ -1,4 +1,4 @@
-# Demo Weather App
+# Islandsbanski Demo Weather App
 
 This project is created in Flutter using BLoC and Provider.
 
@@ -22,7 +22,7 @@ Run the following command to see if there are any dependencies you need to insta
 Download or clone this repo by using the link below:
 
 ```
-TODO: add repo dir
+https://github.com/joao10martins/inslandsbanski-flutter-weather-app.git
 ```
 
 **Step 2:**
