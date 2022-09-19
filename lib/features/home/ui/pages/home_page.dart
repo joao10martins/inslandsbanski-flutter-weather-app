@@ -18,6 +18,9 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     checkNotificationPermissions(context);
+    // Could possibly create some logic here to check whether or not it is past 8 in the morning
+    // And if it is then no notification is scheduled, if it is before then the notification is scheduled to show based on forecast data
+    // (if chance of rain >=70% && hour is BEFORE 8 in the morning => show notification)
   }
 
   @override
